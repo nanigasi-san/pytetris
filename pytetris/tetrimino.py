@@ -1,4 +1,6 @@
 import numpy as np
+
+
 class Tetrimino:
     def __init__(self, cell):
         if (cell < 0).all() or (cell > 1).all():

@@ -31,3 +31,42 @@ def test_tetrimino_init_5():
     cell = np.random.randint(2, 10, (4, 4))
     with pytest.raises(ValueError):
         Tetrimino(cell)
+
+
+@pytest.fixture
+def rot_base_cell():
+    return np.array([[0, 0, 0, 0], [1, 1, 1, 1], [0, 0, 0, 0], [1, 1, 1, 1]])
+
+
+def test_tetrimino_rot_1(rot_base_cell):
+    tetrimino = Tetrimino(rot_base_cell)
+    valid_cell = np.rot90(rot_base_cell, 1)
+    tetrimino.rot90()
+    assert (tetrimino.cell == valid_cell).all()
+
+
+def test_tetrimino_rot_2(rot_base_cell):
+    tetrimino = Tetrimino(rot_base_cell)
+    valid_cell = np.rot90(rot_base_cell, 2)
+    tetrimino.rot90()
+    tetrimino.rot90()
+    assert (tetrimino.cell == valid_cell).all()
+
+
+def test_tetrimino_rot_3(rot_base_cell):
+    tetrimino = Tetrimino(rot_base_cell)
+    valid_cell = np.rot90(rot_base_cell, 3)
+    tetrimino.rot90()
+    tetrimino.rot90()
+    tetrimino.rot90()
+    assert (tetrimino.cell == valid_cell).all()
+
+
+def test_tetrimino_rot_4(rot_base_cell):
+    tetrimino = Tetrimino(rot_base_cell)
+    valid_cell = np.rot90(rot_base_cell, 4)
+    tetrimino.rot90()
+    tetrimino.rot90()
+    tetrimino.rot90()
+    tetrimino.rot90()
+    assert (tetrimino.cell == valid_cell).all()

@@ -5,10 +5,10 @@ jobs:
     steps:
       - checkout
       - run: |
-        python3 -m venv venv
-        . venv/bin/activate
-        pip install -r requirements.txt
-        pytest -v
+          python3 -m venv venv
+          . venv/bin/activate
+          pip install -r requirements.txt
+          pytest -v
 
 workflows:
   version: 2

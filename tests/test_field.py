@@ -14,3 +14,15 @@ def test_field_del_line_1():
     field.field[-1] += 1
     field.update()
     assert (field.field == vaild_field).all()
+
+
+def test_field_del_line_2():
+    vaild_field = np.zeros((20, 10))
+    field = Field()
+    field.field[0] += 1
+    field.field[-1] += 1
+
+    field.update()
+    assert (field.field == vaild_field).all()
+
+

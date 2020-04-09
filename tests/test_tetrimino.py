@@ -16,7 +16,7 @@ def test_tetrimino_cell_2():
 
 
 def test_tetrimino_cell_3():
-    cell = np.array([[0, 1, 0, 1], [1, 0, 1, 0]])
+    cell = np.array([[0, 1, 0, 1], [1, 0, 1, 0], [0, 1, 0, 1], [1, 0, 1, 0]])
     tetrimino = Tetrimino(cell)
     assert (tetrimino.cell == cell).all()
 

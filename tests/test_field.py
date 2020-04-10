@@ -3,6 +3,7 @@ from pytetris.tetrimino import Tetrimino
 import numpy as np
 import pytest
 
+
 def test_field_init_1():
     vaild_field = np.zeros((20, 10))
     field = Field()
@@ -48,7 +49,7 @@ def test_add_update_tetrimino_1(O):
     valid_field = np.zeros((20, 10))
     field = Field()
     for i in range(5):
-        field.add((18, 2*i), O)
+        field.add((18, 2 * i), O)
     field.update()
     print(type(field.field), type(valid_field))
     assert (field.field == valid_field).all()

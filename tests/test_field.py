@@ -1,4 +1,4 @@
-from pytetris.field import Field
+from pytetris.field import Field, TetriminoExistError
 from pytetris.tetrimino import Tetrimino
 import numpy as np
 import pytest
@@ -43,6 +43,32 @@ def test_add_tetrimino_1(O):
     field = Field()
     field.add((18, 0), O)
     assert (field.field == valid_field).all()
+
+
+def test_add_tetrimino_2(O):
+    field = Field()
+    field.add((18, 0), O)
+    field.add((18, 2), O)
+
+
+def test_add_tetrimino_3(O):
+    field = Field()
+    field.add((18, 0), O)
+    field.add((16, 0), O)
+
+
+def test_add_tetrimino_4(O):
+    field = Field()
+    field.add((18, 0), O)
+    with pytest.raises(TetriminoExistError):
+        field.add((17, 0), O)
+
+
+def test_add_tetrimino_5(O):
+    field = Field()
+    field.add((18, 0), O)
+    with pytest.raises(TetriminoExistError):
+        field.add((18, 1), O)
 
 
 def test_add_update_tetrimino_1(O):

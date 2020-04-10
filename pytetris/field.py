@@ -1,5 +1,6 @@
 import numpy as np
 
+
 class Field:
     def __init__(self):
         self.field = np.zeros((20, 10))
@@ -14,14 +15,14 @@ class Field:
         x, y = start
         for i in range(l):
             for j in range(c):
-                self.field[x+i][y+j] += tetrimino.cell[i][j]
+                self.field[x + i][y + j] += tetrimino.cell[i][j]
 
     def is_deployable(self, start, tetrimino):
         l, c = tetrimino.cell.shape
         x, y = start
         for i in range(l):
             for j in range(c):
-                if self.field[x+i][y+j] + tetrimino.cell[i][j] > 1:
+                if self.field[x + i][y + j] + tetrimino.cell[i][j] > 1:
                     return False
         return True
 
